@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/soa'
+    username: drukhary
+    password: '142857'
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+  application:
+    name: study-groups-app
+  cloud:
+    consul:
+      host: localhost
+      port: '8500'
+      scheme: http
+      discovery:
+        heartbeat:
+          enabled: false
+        health-check-path: /api/study-groups/ping
+        health-check-interval: 5s
+        scheme: http
+        catalog-services-watch-delay: '3600000'
+        ip-address: 127.0.0.1
+        prefer-agent-address: true
+      config:
+        import-check:
+          enabled: false
+        watch:
+          delay: '3600000'
+'#spring':
+  cloud:
+    consul:
+      config:
+        enabled: true
+server:
+  port: '8183'
