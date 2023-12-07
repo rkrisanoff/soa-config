@@ -35,5 +35,3 @@ spring:
     consul:
       config:
         enabled: true
-server:
-  port: '8183'
